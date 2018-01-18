@@ -846,14 +846,14 @@ class OrgDataStructure(OrgElement):
         extract_from_level(self.root.content)
         return results_list
 
-    def load_from_file(self, name, form="file"):
+    def load_from_file(self, name, form="file",encoding=None):
         """
         Used to load an org-file inside this DataStructure
         """
         current = self.root
         # Determine content type and put in appropriate form
         if form == "file":
-            content = open(name, 'r')
+            content = open(name, 'r',encoding=encoding)
         elif form == "string":
             content = [tmp+"\n" for tmp in name.split("\n")]
         else:
